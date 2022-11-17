@@ -1,0 +1,53 @@
+#user session
+#cache:
+#  serviceUri: http://cms-cache-svc-cms-corp-sit.tstcld61.server.ha.org.hk/cache/v1/
+#  apiKey:
+#    header: x-cms-cache-svc-api-key
+#  cmssession:
+#    apiKey: aIEMFRoqYSLZHvMq2qOAd6ee4nvjpT1DeGX8WZHYd2HMy6V7Y3CyMU30olPdmdLy
+#    function: cmssession
+
+ #SAM3
+#sam3:
+#  app:
+#    clientIdList: cms-logon-cms-common-logon-svc-app,cms-smartre-services
+#  op:
+#    jwkEndpoint: https://apim-gateway-sit.server.ha.org.hk:8443/gateway/appsvc-sam-sam3Auth/v1/realms/ha/protocol/openid-connect/certs
+#   jwkEndpoint: https://cms-sam-auth-app-sit.cmseap.server.ha.org.hk/auth/realms/cms/protocol/openid-connect/certs
+#sam3_configmap_release_version: 0
+
+# Spring
+spring:
+  #Database
+  datasource:
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    hikari:
+      connection-test-query: SELECT 1
+      idle-timeout: 60000
+      maximum-pool-size: 20
+      minimum-idle: 5
+    password: moe_dbo
+    url: jdbc:jtds:sybase://cdcsrv25:23310/moe_db
+
+    #jdbc:sybase:Tds:cdcsrv25:23310/moe_db
+    #
+
+    #jdbc:jtds:sybase://cms-c3a-st1:23275/gcrsre
+    username: moe_dbo
+  #JPA
+  jpa:
+    database-platform: org.hibernate.dialect.SybaseDialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  #Swagger
+  swagger2:
+    enabled: true
+  #port
+  server:
+    port: 8082
+# SRE report
+#sreReport:
+#  serviceUri: https://cms-sre-report-cms-corp-sit.tstcld61.server.ha.org.hk

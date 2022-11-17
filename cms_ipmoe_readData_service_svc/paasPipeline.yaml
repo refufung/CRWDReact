@@ -1,0 +1,27 @@
+product: "CMS"  #Please find from the Product Profile http://eao.home/pp/index.html?tab=detail&product=APPSVC&module=CDRA
+module: "IPMOE"     #Please find from the Product Profile http://eao.home/pp/index.html?tab=detail&product=APPSVC&module=CDRA
+deployAsLib: false    # default value = false
+checkErrDC: true      # default value = false
+timeout: 30           # input timeout set to 30 days
+allWhenStart: true    # replace all configuration file when pipeline start
+devPipeline:
+  ENV:
+    - DEV:
+        openshiftURL:
+          - https://api.tstcld61.server.ha.org.hk:6443/
+        namespace:
+          - name: cms-ipmoe-dev
+            nameForMapping: dev
+    - SIT:
+        openshiftURL:
+          - https://api.tstcld61.server.ha.org.hk:6443/
+        namespace:
+          - name: cms-corp-sit
+            nameForMapping: corp
+  fortifyScan: false
+  sonatypeScan: false
+  # centralConfigUrl: http://cmsscm/svn/cms_paas_conf/trunk/EA2/cms-common-corp-svc
+  # centralNamespaceUrl: http://cmsscm/svn/cms_paas_conf/trunk/EA2/cms-common-corp-svc
+  # migrateMongoURL: http://cmsscm/svn/...
+
+  kubeInject: false
