@@ -1,0 +1,16 @@
+.enquiry-label {
+    display: block;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 500px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+.App-input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+
